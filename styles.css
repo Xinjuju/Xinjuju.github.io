@@ -1,0 +1,267 @@
+:root {
+  --bg: #ffffff;
+  --paper: #ffffff;
+  --ink: #1f1f1f;
+  --muted: #767676;
+  --line: #e9e9e9;
+  --soft: #f8f8f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: "Noto Serif SC", serif;
+}
+
+.layout {
+  width: min(1400px, calc(100% - 48px));
+  margin: 24px auto 80px;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 28px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  padding-top: 120px;
+}
+
+.site-mark,
+.page-kicker,
+.post-meta,
+.group-heading span {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.sidebar h1,
+.banner h2,
+.article-card h3 {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+}
+
+.sidebar h1 {
+  margin: 8px 0 18px;
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.intro,
+.panel p,
+.page-note {
+  color: var(--muted);
+  line-height: 1.95;
+}
+
+.panel {
+  margin-top: 18px;
+}
+
+.panel h2,
+.group-heading h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.category-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.category-nav a,
+.card-link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.category-nav a {
+  width: fit-content;
+  color: #4c8f2b;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.nav-star {
+  color: #bdd0f1;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.about-panel {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.about-panel h2 {
+  color: #4c8f2b;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.banner {
+  padding-bottom: 18px;
+}
+
+.banner h2 {
+  margin: 4px 0 10px;
+  font-size: 1.3rem;
+  color: var(--muted);
+}
+
+.banner-art {
+  margin: 0;
+}
+
+.banner-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: #fff;
+}
+
+.banner code {
+  font-family: inherit;
+  font-size: 0.95em;
+  color: var(--ink);
+}
+
+.post-group {
+  padding-top: 18px;
+}
+
+.group-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.article-card {
+  min-width: 0;
+}
+
+.article-card-wide {
+  grid-column: span 2;
+}
+
+.card-link {
+  display: block;
+}
+
+.article-thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid #999;
+  background: #fafafa;
+  margin-bottom: 12px;
+}
+
+.article-card-wide .article-thumb {
+  aspect-ratio: 16 / 7;
+}
+
+.thumb-a {
+  background:
+    linear-gradient(180deg, #fcf6fb, #fff),
+    radial-gradient(circle at 65% 22%, #d8d8d8 0 12%, transparent 13%);
+}
+
+.thumb-b {
+  background:
+    linear-gradient(180deg, #f7fbff, #fff),
+    repeating-linear-gradient(0deg, transparent 0 24px, rgba(150, 150, 150, 0.12) 24px 25px);
+}
+
+.thumb-c {
+  background:
+    linear-gradient(180deg, #fffaf2, #fff),
+    radial-gradient(circle at 35% 30%, rgba(210, 210, 210, 0.25), transparent 18%);
+}
+
+.thumb-d {
+  background:
+    linear-gradient(180deg, #f7fbff, #fff 58%),
+    linear-gradient(0deg, #dcebd7, #dcebd7);
+}
+
+.article-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.post-meta {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .sidebar {
+    position: static;
+    padding-top: 0;
+  }
+
+  .article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .article-card-wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    width: min(100% - 24px, 1400px);
+    margin: 20px auto 48px;
+  }
+
+  .group-heading {
+    grid-template-columns: 1fr;
+    display: block;
+  }
+
+  .group-heading span {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .article-card-wide {
+    grid-column: auto;
+  }
+}
