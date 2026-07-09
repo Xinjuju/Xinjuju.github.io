@@ -185,6 +185,11 @@ body {
   padding-top: 18px;
 }
 
+.main-content > .post-group {
+  width: min(980px, 100%);
+  margin-inline: auto;
+}
+
 .post-page {
   width: 100%;
 }
