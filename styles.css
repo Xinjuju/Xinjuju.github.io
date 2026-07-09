@@ -209,6 +209,12 @@ body {
     linear-gradient(0deg, #dcebd7, #dcebd7);
 }
 
+.thumb-e {
+  background:
+    linear-gradient(180deg, #fff, #f6fbf3),
+    radial-gradient(circle at 42% 35%, rgba(50, 50, 50, 0.18), transparent 20%);
+}
+
 .article-card h3 {
   margin: 0 0 6px;
   font-size: 1.1rem;
@@ -218,6 +224,33 @@ body {
 
 .post-meta {
   margin: 0;
+}
+
+.post-body p {
+  margin: 0;
+  line-height: 2;
+}
+
+.post-body p + p {
+  margin-top: 1.2rem;
+}
+
+.post-image {
+  margin: 34px auto;
+  text-align: center;
+}
+
+.post-image img {
+  display: block;
+  max-width: min(520px, 100%);
+  height: auto;
+  margin: 0 auto;
+}
+
+.post-image figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 980px) {
