@@ -101,6 +101,16 @@ body {
   line-height: 1;
 }
 
+.about-panel {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.about-panel h2 {
+  color: #4c8f2b;
+}
+
 .main-content {
   min-width: 0;
 }
