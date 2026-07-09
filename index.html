@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Noto+Serif+SC:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260709-gallery-compact" />
+    <link rel="stylesheet" href="styles.css?v=20260709-gallery-lightbox" />
   </head>
   <body>
     <div class="layout">
@@ -63,23 +63,33 @@
           </div>
           <div class="gallery-grid">
             <figure class="gallery-card">
-              <img src="images/heihei-and-orange.png" alt="黑黑和小橘" />
+              <button class="gallery-button" type="button">
+                <img src="images/heihei-and-orange.png" alt="黑黑和小橘" />
+              </button>
               <figcaption>黑黑和小橘</figcaption>
             </figure>
             <figure class="gallery-card">
-              <img src="images/heihei-rainy-night.png" alt="雨夜中的小黑黑" />
+              <button class="gallery-button" type="button">
+                <img src="images/heihei-rainy-night.png" alt="雨夜中的小黑黑" />
+              </button>
               <figcaption>雨夜中的小黑黑</figcaption>
             </figure>
             <figure class="gallery-card">
-              <img src="images/heihei-purple-blanket.png" alt="盖着紫色毯子的黑黑" />
+              <button class="gallery-button" type="button">
+                <img src="images/heihei-purple-blanket.png" alt="盖着紫色毯子的黑黑" />
+              </button>
               <figcaption>盖着紫色毯子的黑黑</figcaption>
             </figure>
             <figure class="gallery-card">
-              <img src="images/heihei-first-photo.png" alt="我给黑黑拍的第一张照片" />
+              <button class="gallery-button" type="button">
+                <img src="images/heihei-first-photo.png" alt="我给黑黑拍的第一张照片" />
+              </button>
               <figcaption>第一张照片</figcaption>
             </figure>
             <figure class="gallery-card">
-              <img src="images/heihei-poop.png" alt="黑黑拉臭臭" />
+              <button class="gallery-button" type="button">
+                <img src="images/heihei-poop.png" alt="黑黑拉臭臭" />
+              </button>
               <figcaption>黑黑拉臭臭</figcaption>
             </figure>
           </div>
@@ -93,7 +103,11 @@
           <div class="article-grid">
             <article class="article-card">
               <a href="posts/heihei-first-meeting.html" class="card-link">
-                <div class="article-thumb thumb-e"></div>
+                <img
+                  class="article-thumb article-thumb-image"
+                  src="images/heihei-rainy-night.png"
+                  alt="雨夜中的小黑黑"
+                />
                 <h3>黑黑的故事：初次见面</h3>
                 <p class="post-meta">2026.07.09</p>
               </a>
@@ -134,5 +148,42 @@
         </section>
       </main>
     </div>
+    <div class="lightbox" aria-hidden="true">
+      <button class="lightbox-backdrop" type="button" aria-label="关闭大图"></button>
+      <figure class="lightbox-panel">
+        <button class="lightbox-close" type="button" aria-label="关闭大图">×</button>
+        <img src="" alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+    <script>
+      const lightbox = document.querySelector(".lightbox");
+      const lightboxImage = lightbox.querySelector("img");
+      const lightboxCaption = lightbox.querySelector("figcaption");
+      const closeLightbox = () => {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+      };
+
+      document.querySelectorAll(".gallery-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const image = button.querySelector("img");
+          const caption = button.closest(".gallery-card").querySelector("figcaption");
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+          lightboxCaption.textContent = caption.textContent;
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      lightbox.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
+      lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+      });
+    </script>
   </body>
 </html>
