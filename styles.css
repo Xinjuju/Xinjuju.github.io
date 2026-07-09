@@ -34,7 +34,7 @@ body {
   position: sticky;
   top: 24px;
   align-self: start;
-  padding-top: 120px;
+  padding-top: 0;
 }
 
 .site-mark,
