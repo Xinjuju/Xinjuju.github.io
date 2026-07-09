@@ -101,16 +101,6 @@ body {
   line-height: 1;
 }
 
-.about-panel {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.about-panel h2 {
-  color: #4c8f2b;
-}
-
 .main-content {
   min-width: 0;
 }
@@ -187,6 +177,26 @@ body {
 
 .article-card-wide {
   grid-column: span 2;
+}
+
+.gallery-card {
+  margin: 0;
+}
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  border: 1px solid #999;
+  background: #fff;
+}
+
+.gallery-card figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .card-link {
