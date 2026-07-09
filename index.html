@@ -14,44 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Noto+Serif+SC:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260709-banner-rotate" />
-    <style>
-      .banner-art {
-        position: relative;
-        overflow: hidden;
-        background: #fff;
-      }
-
-      .banner-slide + .banner-slide {
-        position: absolute;
-        inset: 0;
-      }
-
-      .banner-slide {
-        animation: banner-fade 8s ease-in-out infinite;
-      }
-
-      .banner-slide:nth-child(2) {
-        opacity: 0;
-        animation-delay: 4s;
-      }
-
-      @keyframes banner-fade {
-        0%,
-        42% {
-          opacity: 1;
-        }
-
-        50%,
-        92% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css?v=20260709-banner-frame" />
   </head>
   <body>
     <div class="layout">
@@ -81,10 +44,6 @@
 
       <main class="main-content">
         <section class="banner">
-          <div class="banner-copy">
-            <p class="page-kicker">Top Image</p>
-            <h2>以后这里放你最喜欢的一张画。</h2>
-          </div>
           <figure class="banner-art">
             <img
               class="banner-slide"
