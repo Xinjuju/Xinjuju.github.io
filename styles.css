@@ -147,6 +147,26 @@ body {
   padding-top: 18px;
 }
 
+.post-page {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.post-page .page-header,
+.post-page .post-group {
+  width: 100%;
+}
+
+.post-page .group-heading {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.post-page .group-heading h2 {
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
 .group-heading {
   display: flex;
   justify-content: space-between;
@@ -228,11 +248,13 @@ body {
 
 .post-body p {
   margin: 0;
-  line-height: 2;
+  font-size: 1rem;
+  line-height: 2.05;
+  text-align: left;
 }
 
 .post-body p + p {
-  margin-top: 1.2rem;
+  margin-top: 1.45rem;
 }
 
 .post-image {
@@ -242,7 +264,7 @@ body {
 
 .post-image img {
   display: block;
-  max-width: min(520px, 100%);
+  max-width: min(420px, 100%);
   height: auto;
   margin: 0 auto;
 }
