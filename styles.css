@@ -126,7 +126,10 @@ body {
 }
 
 .banner-art {
+  position: relative;
   margin: 0;
+  overflow: hidden;
+  background: #fff;
 }
 
 .banner-art img {
@@ -135,6 +138,36 @@ body {
   height: auto;
   border: 0;
   background: #fff;
+}
+
+.banner-slide + .banner-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.banner-slide {
+  animation: banner-fade 8s ease-in-out infinite;
+}
+
+.banner-slide:nth-child(2) {
+  opacity: 0;
+  animation-delay: 4s;
+}
+
+@keyframes banner-fade {
+  0%,
+  42% {
+    opacity: 1;
+  }
+
+  50%,
+  92% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .banner code {
