@@ -148,13 +148,13 @@ body {
 }
 
 .post-page {
-  max-width: 680px;
-  margin-inline: auto;
+  width: 100%;
 }
 
 .post-page .page-header,
 .post-page .post-group {
-  width: 100%;
+  width: min(620px, 100%);
+  margin-inline: auto;
 }
 
 .post-page .group-heading {
@@ -264,7 +264,7 @@ body {
 
 .post-image img {
   display: block;
-  max-width: min(420px, 100%);
+  max-width: min(390px, 100%);
   height: auto;
   margin: 0 auto;
 }
