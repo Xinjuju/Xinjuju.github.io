@@ -37,13 +37,26 @@ body {
   padding-top: 0;
 }
 
-.site-mark,
 .page-kicker,
 .post-meta,
 .group-heading span {
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   color: var(--muted);
+}
+
+.profile {
+  margin-bottom: 22px;
+}
+
+.site-mark {
+  margin: 0 0 10px;
+  color: #243a73;
+  font-family: "Crimson Text", serif;
+  font-size: 1.75rem;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .sidebar h1,
@@ -54,9 +67,10 @@ body {
 }
 
 .sidebar h1 {
-  margin: 8px 0 18px;
-  font-size: 1.45rem;
+  margin: 0 0 18px;
+  font-size: 1.3rem;
   line-height: 1.35;
+  color: #4b4b4b;
 }
 
 .intro,
@@ -468,6 +482,10 @@ body {
 
   .group-heading-notes h2 {
     font-size: 1.6rem;
+  }
+
+  .site-mark {
+    font-size: 1.5rem;
   }
 
   .article-grid {
