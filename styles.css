@@ -198,15 +198,23 @@ body {
 
 .post-group {
   padding-top: 18px;
+  scroll-margin-top: 24px;
+  transition: background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .main-content > .post-group {
   width: min(980px, 100%);
   margin-inline: auto;
+  min-height: min(52vh, 420px);
 }
 
 .main-content > .post-group + .post-group {
   margin-top: 54px;
+}
+
+.post-group.is-targeted {
+  background: linear-gradient(180deg, rgba(76, 143, 43, 0.08), rgba(76, 143, 43, 0));
+  box-shadow: inset 0 1px 0 rgba(76, 143, 43, 0.18);
 }
 
 .post-page {
@@ -487,6 +495,10 @@ body {
 
   .main-content > .post-group + .post-group {
     margin-top: 42px;
+  }
+
+  .main-content > .post-group {
+    min-height: auto;
   }
 
   .sidebar h1 {

@@ -224,6 +224,45 @@
 
       lightbox.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
       lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+      const sectionLinks = document.querySelectorAll('.category-nav a[href^="#"]');
+      let activeSection = null;
+
+      const focusSection = (section) => {
+        if (!section) return;
+        if (activeSection && activeSection !== section) {
+          activeSection.classList.remove("is-targeted");
+        }
+
+        section.classList.add("is-targeted");
+        activeSection = section;
+
+        const top = section.getBoundingClientRect().top + window.scrollY - 24;
+        window.scrollTo({
+          top: Math.max(top, 0),
+          behavior: "smooth",
+        });
+
+        window.clearTimeout(focusSection.timeoutId);
+        focusSection.timeoutId = window.setTimeout(() => {
+          section.classList.remove("is-targeted");
+          if (activeSection === section) {
+            activeSection = null;
+          }
+        }, 900);
+      };
+
+      sectionLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const targetId = link.getAttribute("href");
+          const section = document.querySelector(targetId);
+          if (!section) return;
+
+          event.preventDefault();
+          history.replaceState(null, "", targetId);
+          focusSection(section);
+        });
+      });
+
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
           closeLightbox();
