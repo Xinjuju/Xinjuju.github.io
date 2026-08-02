@@ -204,6 +204,10 @@ body {
   margin-inline: auto;
 }
 
+.main-content > .post-group + .post-group {
+  margin-top: 54px;
+}
+
 .post-page {
   width: 100%;
 }
@@ -253,9 +257,9 @@ body {
 }
 
 .group-heading-notes h2 {
-  font-size: 1.9rem;
-  line-height: 1.15;
-  font-weight: 650;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  font-weight: 600;
 }
 
 .article-grid {
@@ -481,11 +485,15 @@ body {
   }
 
   .group-heading-notes h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .site-mark {
     font-size: 1.5rem;
+  }
+
+  .main-content > .post-group + .post-group {
+    margin-top: 42px;
   }
 
   .article-grid {
