@@ -1,0 +1,28 @@
+name: 发布随记
+description: 发布新的随记文章
+title: "[发布随记] "
+labels:
+  - publish
+  - note
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 标题
+      placeholder: 例如：今天在路上记下来的东西
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: 日期
+      placeholder: 2026.08.02
+    validations:
+      required: true
+  - type: textarea
+    id: body
+    attributes:
+      label: 正文
+      placeholder: 每段之间空一行
+    validations:
+      required: true
