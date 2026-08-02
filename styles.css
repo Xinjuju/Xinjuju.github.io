@@ -131,7 +131,7 @@ body {
 }
 
 .banner {
-  padding-bottom: 28px;
+  padding-bottom: 22px;
 }
 
 .banner h2 {
@@ -143,9 +143,9 @@ body {
 .banner-art {
   position: relative;
   width: min(980px, 100%);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7.4;
   margin: 0 auto;
-  padding: 28px;
+  padding: 24px;
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--line);
