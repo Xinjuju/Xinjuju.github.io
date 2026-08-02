@@ -226,6 +226,22 @@
       lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
       const sectionLinks = document.querySelectorAll('.category-nav a[href^="#"]');
       let activeSection = null;
+      let activeLink = null;
+
+      const setActiveLink = (section) => {
+        const nextLink = Array.from(sectionLinks).find(
+          (link) => link.getAttribute("href") === `#${section.id}`
+        );
+
+        if (activeLink && activeLink !== nextLink) {
+          activeLink.classList.remove("is-active");
+        }
+
+        if (nextLink) {
+          nextLink.classList.add("is-active");
+          activeLink = nextLink;
+        }
+      };
 
       const focusSection = (section) => {
         if (!section) return;
@@ -235,6 +251,7 @@
 
         section.classList.add("is-targeted");
         activeSection = section;
+        setActiveLink(section);
 
         const top = section.getBoundingClientRect().top + window.scrollY - 24;
         window.scrollTo({
@@ -262,6 +279,12 @@
           focusSection(section);
         });
       });
+
+      const initialSection =
+        document.querySelector(window.location.hash) || document.querySelector("#paintings");
+      if (initialSection) {
+        setActiveLink(initialSection);
+      }
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
