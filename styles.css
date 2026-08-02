@@ -219,7 +219,7 @@ body {
 }
 
 .main-content > .post-group + .post-group {
-  margin-top: 26px;
+  margin-top: 16px;
 }
 
 .post-group.is-targeted {
@@ -525,7 +525,7 @@ body {
   }
 
   .main-content > .post-group + .post-group {
-    margin-top: 22px;
+    margin-top: 16px;
   }
 
   .main-content > .post-group {
