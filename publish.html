@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发布 | JuJube Notes</title>
+    <meta
+      name="description"
+      content="通过 GitHub 表单发布新的画、影像和随记。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260802-publish-tools" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="profile">
+          <p class="site-mark">JuJube Notes</p>
+        </div>
+        <nav class="category-nav" aria-label="返回首页">
+          <a href="index.html">回到首页</a>
+        </nav>
+      </aside>
+
+      <main class="main-content post-page">
+        <header class="page-header">
+          <p class="page-kicker">发布</p>
+          <p class="page-note">以后新增内容可以直接从这里走表单。</p>
+        </header>
+
+        <section class="post-group">
+          <div class="group-heading">
+            <h2>选择要发布的内容</h2>
+          </div>
+          <div class="publish-grid">
+            <article class="publish-card">
+              <h3>发布画</h3>
+              <p>填写标题、图片地址和解说，发布后会同步到首页和全部画作页。</p>
+              <a
+                href="https://github.com/Xinjuju/Xinjuju.github.io/issues/new?template=publish-painting.yml"
+                class="publish-card-link"
+                >开始发布</a
+              >
+            </article>
+            <article class="publish-card">
+              <h3>发布影像</h3>
+              <p>填写标题、图片地址和说明，发布后会同步到首页和影像页。</p>
+              <a
+                href="https://github.com/Xinjuju/Xinjuju.github.io/issues/new?template=publish-photo.yml"
+                class="publish-card-link"
+                >开始发布</a
+              >
+            </article>
+            <article class="publish-card">
+              <h3>发布随记</h3>
+              <p>填写标题、日期和正文，发布后会自动生成文章页，并加入首页和随记页。</p>
+              <a
+                href="https://github.com/Xinjuju/Xinjuju.github.io/issues/new?template=publish-note.yml"
+                class="publish-card-link"
+                >开始发布</a
+              >
+            </article>
+          </div>
+          <p class="publish-note">
+            图片需要先有一个公开可访问的网址。提交表单后，GitHub Actions 会自动更新网站内容。
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
