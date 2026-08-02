@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jujube Notes</title>
+    <title>画 | JuJube Notes</title>
     <meta
       name="description"
-      content="一个用来发布画、文字和照片的个人艺术博客。"
+      content="JuJube Notes 里的全部画作。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,128 +14,29 @@
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Noto+Serif+SC:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260709-section-align" />
-    <style>
-      .banner-art {
-        position: relative;
-        width: min(980px, 100%);
-        aspect-ratio: 16 / 7.4;
-        margin: 0 auto;
-        padding: 24px;
-        overflow: hidden;
-        background: #fff;
-        border: 1px solid var(--line);
-      }
-
-      .banner-art img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .banner-slide + .banner-slide {
-        position: absolute;
-        inset: 24px;
-        width: calc(100% - 48px);
-        height: calc(100% - 48px);
-      }
-
-      .banner-slide {
-        animation: banner-fade 8s ease-in-out infinite;
-      }
-
-      .banner-slide:nth-child(2) {
-        opacity: 0;
-        animation-delay: 4s;
-      }
-
-      @keyframes banner-fade {
-        0%,
-        42% {
-          opacity: 1;
-        }
-
-        50%,
-        92% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 980px) {
-        .banner-art {
-          padding: 18px;
-        }
-
-        .banner-slide + .banner-slide {
-          inset: 18px;
-          width: calc(100% - 36px);
-          height: calc(100% - 36px);
-        }
-      }
-
-      @media (max-width: 640px) {
-        .banner-art {
-          padding: 12px;
-        }
-
-        .banner-slide + .banner-slide {
-          inset: 12px;
-          width: calc(100% - 24px);
-          height: calc(100% - 24px);
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css?v=20260802-paintings-page" />
   </head>
   <body>
     <div class="layout">
       <aside class="sidebar">
         <div class="profile">
           <p class="site-mark">JuJube Notes</p>
-          <h1>写字、画画、影像，记录一些慢慢留下来的东西。</h1>
         </div>
-
-        <section class="panel">
-          <nav class="category-nav" aria-label="文章分类">
-            <a href="#paintings">画</a>
-            <span class="nav-star">★</span>
-            <a href="#photos">影像</a>
-            <span class="nav-star">★</span>
-            <a href="#notes">随记</a>
-          </nav>
-        </section>
-
-        <section id="about" class="panel about-panel">
-          <h2>关于我</h2>
-          <p>comme un arbre.</p>
-        </section>
+        <nav class="category-nav" aria-label="返回首页">
+          <a href="index.html">回到首页</a>
+        </nav>
       </aside>
 
-      <main class="main-content">
-        <section class="banner">
-          <figure class="banner-art">
-            <img
-              class="banner-slide"
-              src="images/home-banner-1.png"
-              alt="首页图 1"
-            />
-            <img
-              class="banner-slide"
-              src="images/home-banner-2.png"
-              alt="首页图 2"
-            />
-          </figure>
-        </section>
+      <main class="main-content post-page paintings-page">
+        <header class="page-header">
+          <p class="page-kicker">画</p>
+        </header>
 
-        <section id="paintings" class="post-group">
+        <section class="post-group">
           <div class="group-heading">
-            <h2>画</h2>
-            <a href="paintings.html" class="group-link">more</a>
+            <h2>全部画作</h2>
           </div>
-          <div class="gallery-grid">
+          <div class="gallery-grid gallery-grid-wide">
             <figure class="gallery-card">
               <button
                 class="gallery-button"
@@ -208,33 +109,9 @@
             </figure>
           </div>
         </section>
-
-        <section id="notes" class="post-group">
-          <div class="group-heading group-heading-notes">
-            <h2>随记</h2>
-          </div>
-          <div class="article-grid">
-            <article class="article-card">
-              <a href="posts/heihei-first-meeting.html" class="card-link">
-                <h3>黑黑的故事：初次见面</h3>
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <section id="photos" class="post-group">
-          <div class="group-heading">
-            <h2>影像</h2>
-            <span>soon</span>
-          </div>
-          <div class="media-grid">
-            <article class="media-card media-card-empty">
-              <p>照片会放在这里。</p>
-            </article>
-          </div>
-        </section>
       </main>
     </div>
+
     <div class="lightbox" aria-hidden="true">
       <button class="lightbox-backdrop" type="button" aria-label="关闭大图"></button>
       <figure class="lightbox-panel">
@@ -248,6 +125,7 @@
         </div>
       </figure>
     </div>
+
     <script>
       const lightbox = document.querySelector(".lightbox");
       const lightboxImage = lightbox.querySelector("img");
@@ -273,69 +151,6 @@
 
       lightbox.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
       lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-      const sectionLinks = document.querySelectorAll('.category-nav a[href^="#"]');
-      let activeSection = null;
-      let activeLink = null;
-      const sectionViewportAnchor = 0.28;
-
-      const setActiveLink = (section) => {
-        const nextLink = Array.from(sectionLinks).find(
-          (link) => link.getAttribute("href") === `#${section.id}`
-        );
-
-        if (activeLink && activeLink !== nextLink) {
-          activeLink.classList.remove("is-active");
-        }
-
-        if (nextLink) {
-          nextLink.classList.add("is-active");
-          activeLink = nextLink;
-        }
-      };
-
-      const focusSection = (section) => {
-        if (!section) return;
-        if (activeSection && activeSection !== section) {
-          activeSection.classList.remove("is-targeted");
-        }
-
-        section.classList.add("is-targeted");
-        activeSection = section;
-        setActiveLink(section);
-
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-        const top = sectionTop - window.innerHeight * sectionViewportAnchor;
-        window.scrollTo({
-          top: Math.max(top, 0),
-          behavior: "smooth",
-        });
-
-        window.clearTimeout(focusSection.timeoutId);
-        focusSection.timeoutId = window.setTimeout(() => {
-          section.classList.remove("is-targeted");
-          if (activeSection === section) {
-            activeSection = null;
-          }
-        }, 900);
-      };
-
-      sectionLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          const targetId = link.getAttribute("href");
-          const section = document.querySelector(targetId);
-          if (!section) return;
-
-          event.preventDefault();
-          history.replaceState(null, "", targetId);
-          focusSection(section);
-        });
-      });
-
-      const initialSection =
-        document.querySelector(window.location.hash) || document.querySelector("#paintings");
-      if (initialSection) {
-        setActiveLink(initialSection);
-      }
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {

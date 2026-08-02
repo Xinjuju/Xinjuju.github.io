@@ -39,7 +39,8 @@ body {
 
 .page-kicker,
 .post-meta,
-.group-heading span {
+.group-heading span,
+.group-link {
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -208,7 +209,7 @@ body {
 
 .post-group {
   padding-top: 18px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: 28vh;
   transition: background-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -267,6 +268,16 @@ body {
   text-transform: uppercase;
 }
 
+.group-link {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.group-link:hover,
+.group-link:focus-visible {
+  color: #243a73;
+}
+
 .group-heading-notes {
   display: block;
   margin-bottom: 16px;
@@ -321,6 +332,11 @@ body {
   grid-template-columns: repeat(auto-fill, 120px);
   gap: 22px 18px;
   align-items: start;
+}
+
+.gallery-grid-wide {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px 20px;
 }
 
 .gallery-card {
