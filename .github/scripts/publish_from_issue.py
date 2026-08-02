@@ -39,6 +39,18 @@ def parse_sections(body: str) -> dict[str, str]:
     return sections
 
 
+def extract_image_url(text: str) -> str:
+    markdown_image = re.search(r"!\[[^\]]*\]\((https?://[^)\s]+)\)", text)
+    if markdown_image:
+        return markdown_image.group(1)
+
+    plain_url = re.search(r"(https?://\S+)", text)
+    if plain_url:
+        return plain_url.group(1).rstrip(")")
+
+    return ""
+
+
 def slugify(value: str) -> str:
     slug = re.sub(r"\s+", "-", value.strip().lower())
     slug = re.sub(r"[^0-9a-z\u4e00-\u9fff-]", "", slug)
@@ -206,8 +218,10 @@ def main() -> None:
 
     if "painting" in labels:
         title = sections["标题"]
-        image_url = sections["图片地址"]
+        image_url = extract_image_url(sections.get("图片", ""))
         description = sections["解说"]
+        if not image_url:
+            raise ValueError("未找到图片地址。请把本地图片直接拖进“图片”一栏后再提交。")
         snippet = render_painting_card(title, image_url, description)
         insert_before_marker(INDEX_FILE, "paintings", snippet)
         insert_before_marker(PAINTINGS_FILE, "paintings", snippet)
@@ -216,8 +230,10 @@ def main() -> None:
 
     if "photo" in labels:
         title = sections["标题"]
-        image_url = sections["图片地址"]
+        image_url = extract_image_url(sections.get("图片", ""))
         description = sections["说明"]
+        if not image_url:
+            raise ValueError("未找到图片地址。请把本地图片直接拖进“图片”一栏后再提交。")
         snippet = render_photo_card(title, image_url, description)
         remove_placeholder(INDEX_FILE, photo_placeholder)
         remove_placeholder(PHOTOS_FILE, photo_placeholder)
