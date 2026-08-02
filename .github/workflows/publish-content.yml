@@ -1,0 +1,62 @@
+name: Publish Content
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publish:
+    if: contains(github.event.issue.labels.*.name, 'publish')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Publish content from issue
+        id: publish
+        run: python .github/scripts/publish_from_issue.py
+
+      - name: Commit changes
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html notes.html paintings.html photos.html posts .github styles.css publish.html
+          git commit -m "${{ steps.publish.outputs.commit_message }}"
+          git push
+
+      - name: Comment and close issue
+        if: steps.publish.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        env:
+          PUBLISHED_URL: ${{ steps.publish.outputs.published_url }}
+        with:
+          script: |
+            const body = process.env.PUBLISHED_URL
+              ? `已发布：${process.env.PUBLISHED_URL}`
+              : '已发布。';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+            });
