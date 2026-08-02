@@ -1,0 +1,28 @@
+name: 发布画
+description: 发布新的画作和解说
+title: "[发布画] "
+labels:
+  - publish
+  - painting
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 标题
+      placeholder: 例如：黑黑的新草稿
+    validations:
+      required: true
+  - type: input
+    id: image
+    attributes:
+      label: 图片地址
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 解说
+      placeholder: 写这幅画想配的文字
+    validations:
+      required: true
