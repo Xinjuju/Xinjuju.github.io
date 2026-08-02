@@ -279,7 +279,9 @@ body {
 }
 
 .group-heading-notes {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   margin-bottom: 16px;
   padding-bottom: 0;
   border-bottom: 0;
@@ -553,6 +555,7 @@ body {
   .group-heading-notes {
     margin-bottom: 14px;
     padding-bottom: 0;
+    display: block;
   }
 
   .group-heading-notes h2 {
