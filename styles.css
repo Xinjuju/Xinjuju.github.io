@@ -73,6 +73,12 @@ body {
   line-height: 1.42;
   color: #4b4b4b;
   max-width: 13.4em;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.keep-together {
+  white-space: nowrap;
 }
 
 .intro,
