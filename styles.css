@@ -215,7 +215,6 @@ body {
 .main-content > .post-group {
   width: min(980px, 100%);
   margin-inline: auto;
-  min-height: min(52vh, 420px);
 }
 
 .main-content > .post-group + .post-group {
@@ -526,10 +525,6 @@ body {
 
   .main-content > .post-group + .post-group {
     margin-top: 16px;
-  }
-
-  .main-content > .post-group {
-    min-height: auto;
   }
 
   .sidebar h1 {
