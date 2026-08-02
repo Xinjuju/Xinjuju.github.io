@@ -219,7 +219,7 @@ body {
 }
 
 .main-content > .post-group + .post-group {
-  margin-top: 54px;
+  margin-top: 26px;
 }
 
 .post-group.is-targeted {
@@ -411,28 +411,49 @@ body {
 .lightbox-panel {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
+  width: min(920px, 100%);
   max-height: min(86vh, 900px);
   margin: 0;
-  padding: 18px 18px 14px;
+  padding: 18px;
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
 }
 
+.lightbox-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  gap: 18px;
+  align-items: start;
+}
+
 .lightbox-panel img {
   display: block;
   max-width: 100%;
-  max-height: calc(86vh - 92px);
+  max-height: calc(86vh - 96px);
   margin: 0 auto;
   object-fit: contain;
 }
 
 .lightbox-panel figcaption {
-  margin-top: 10px;
+  margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
+  text-align: left;
+}
+
+.lightbox-title {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.lightbox-description {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.8;
 }
 
 .lightbox-close {
@@ -504,7 +525,7 @@ body {
   }
 
   .main-content > .post-group + .post-group {
-    margin-top: 42px;
+    margin-top: 22px;
   }
 
   .main-content > .post-group {
@@ -527,5 +548,10 @@ body {
 
   .banner-art {
     padding: 12px;
+  }
+
+  .lightbox-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }

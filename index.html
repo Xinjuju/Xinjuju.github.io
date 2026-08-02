@@ -135,43 +135,71 @@
           </div>
           <div class="gallery-grid">
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="这是黑黑和他的亲兄弟（也可能是姐妹？）小橘哦！小橘现在又在哪里生活呢？ta的性格和黑黑像吗？"
+              >
                 <img src="images/heihei-and-orange.png" alt="黑黑和小橘" />
               </button>
               <figcaption>黑黑和小橘</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="黑黑被抓住之前在草丛里嚎了几天，因为是雨季，还被淋湿了。所以他刚到家最初几天就得了重感冒，有天晚上还往人脸上吐了一个大鼻涕泡。"
+              >
                 <img src="images/heihei-rainy-night.png" alt="雨夜中的小黑黑" />
               </button>
               <figcaption>雨夜中的小黑黑</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="救助人姐姐给我发的第一张黑黑的照片，眼睛大大的、脸尖尖的，像个外星人。"
+              >
                 <img src="images/heihei-purple-blanket.png" alt="盖着紫色毯子的黑黑" />
               </button>
               <figcaption>盖着紫色毯子的黑黑</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="我给黑黑拍的第一张照片，他像个毛球一样趴在纸箱的角落，还自带白色眼线。"
+              >
                 <img src="images/heihei-first-photo.png" alt="我给黑黑拍的第一张照片" />
               </button>
               <figcaption>第一张照片</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="黑黑刚到家就会用猫砂诶！还把便便埋得很好。谁教他的呢？"
+              >
                 <img src="images/heihei-poop.png" alt="黑黑拉臭臭" />
               </button>
               <figcaption>黑黑拉臭臭</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="在procreate里发现一个有意思的笔触，立马用来画大头橘橘！"
+              >
                 <img src="images/juju-closeup.jpg" alt="橘橘大头照" />
               </button>
               <figcaption>橘橘大头照</figcaption>
             </figure>
             <figure class="gallery-card">
-              <button class="gallery-button" type="button">
+              <button
+                class="gallery-button"
+                type="button"
+                data-description="照着YY画的人像，意外的有意思，我可能有画搞笑漫画的天赋。希望早日画出一张他愿意拿来做头像的。"
+              >
                 <img src="images/sketch-yy.jpg" alt="素描YY" />
               </button>
               <figcaption>素描YY</figcaption>
@@ -197,14 +225,20 @@
       <button class="lightbox-backdrop" type="button" aria-label="关闭大图"></button>
       <figure class="lightbox-panel">
         <button class="lightbox-close" type="button" aria-label="关闭大图">×</button>
-        <img src="" alt="" />
-        <figcaption></figcaption>
+        <div class="lightbox-layout">
+          <img src="" alt="" />
+          <figcaption>
+            <strong class="lightbox-title"></strong>
+            <p class="lightbox-description"></p>
+          </figcaption>
+        </div>
       </figure>
     </div>
     <script>
       const lightbox = document.querySelector(".lightbox");
       const lightboxImage = lightbox.querySelector("img");
-      const lightboxCaption = lightbox.querySelector("figcaption");
+      const lightboxTitle = lightbox.querySelector(".lightbox-title");
+      const lightboxDescription = lightbox.querySelector(".lightbox-description");
       const closeLightbox = () => {
         lightbox.classList.remove("is-open");
         lightbox.setAttribute("aria-hidden", "true");
@@ -216,7 +250,8 @@
           const caption = button.closest(".gallery-card").querySelector("figcaption");
           lightboxImage.src = image.src;
           lightboxImage.alt = image.alt;
-          lightboxCaption.textContent = caption.textContent;
+          lightboxTitle.textContent = caption.textContent;
+          lightboxDescription.textContent = button.dataset.description || "";
           lightbox.classList.add("is-open");
           lightbox.setAttribute("aria-hidden", "false");
         });
